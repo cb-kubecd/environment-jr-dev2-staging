@@ -1,1 +1,6 @@
-defaultNamespace: ""
+apps:
+- name: dev/jr-dev2-go1
+  version: 0.0.1
+repositories:
+- name: dev
+  url: http://chartmuseum-jx.35.187.33.98.nip.io

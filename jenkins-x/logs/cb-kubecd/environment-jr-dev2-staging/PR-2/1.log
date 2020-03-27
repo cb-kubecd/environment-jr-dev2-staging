@@ -1,0 +1,45 @@
+
+Showing logs for build [32mcb-kubecd-environment-jr-dev2-s-f9vgd-1[0m stage [32mpr-checks[0m and container [32mstep-credential-initializer-5npgk[0m
+{"level":"warn","ts":1585337422.6791134,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1585337422.6795232,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mcb-kubecd-environment-jr-dev2-s-f9vgd-1[0m stage [32mpr-checks[0m and container [32mstep-working-dir-initializer-lw5mw[0m
+{"level":"warn","ts":1585337423.676702,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1585337423.6778667,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mcb-kubecd-environment-jr-dev2-s-f9vgd-1[0m stage [32mpr-checks[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mcb-kubecd-environment-jr-dev2-s-f9vgd-1[0m stage [32mpr-checks[0m and container [32mstep-git-source-cb-kubecd-environment-jr-dev2-s-f9vgd-sr9m5[0m
+{"level":"warn","ts":1585337462.834503,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1585337463.9386024,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/cb-kubecd/environment-jr-dev2-staging.git @ master in path /workspace/source"}
+
+Showing logs for build [32mcb-kubecd-environment-jr-dev2-s-f9vgd-1[0m stage [32mpr-checks[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:f2043e670f909cbeaa69cdde4117c037deb448eb,2:f909429adebc62d3d3a8b87f7cae62b3cc40f194
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow f909429adebc62d3d3a8b87f7cae62b3cc40f194: f2043e670f909cbeaa69cdde4117c037deb448eb:
+DEBUG: ran git fetch --unshallow origin f909429adebc62d3d3a8b87f7cae62b3cc40f194: f2043e670f909cbeaa69cdde4117c037deb448eb: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard f2043e670f909cbeaa69cdde4117c037deb448eb
+DEBUG: ran git reset --hard f2043e670f909cbeaa69cdde4117c037deb448eb in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge f909429adebc62d3d3a8b87f7cae62b3cc40f194
+DEBUG: ran git merge f909429adebc62d3d3a8b87f7cae62b3cc40f194 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e f2043e670f909cbeaa69cdde4117c037deb448eb..HEAD
+Merged SHA f909429adebc62d3d3a8b87f7cae62b3cc40f194 with commit message 'chore: Promote jr-dev2-go1 to version 0.0.2' into base branch master
+
+Showing logs for build [32mcb-kubecd-environment-jr-dev2-s-f9vgd-1[0m stage [32mpr-checks[0m and container [32mstep-create-helmfile[0m
+
+Showing logs for build [32mcb-kubecd-environment-jr-dev2-s-f9vgd-1[0m stage [32mpr-checks[0m and container [32mstep-lint-helmfile-system[0m
+Adding repo dev http://chartmuseum-**.35.187.33.98.nip.io
+Adding repo dev2 http://chartmuseum-**.rawlingsdemo.co.uk
+"dev2" has been added to your repositories
+
+Adding repo jenkins-x https://storage.googleapis.com/chartmuseum.jenkins-x.io
+"jenkins-x" has been added to your repositories
+
+in ./helmfile.yaml: helm exited with status 1:
+  Error: looks like "http://chartmuseum-**.35.187.33.98.nip.io" is not a valid chart repository or cannot be reached: failed to fetch http://chartmuseum-**.35.187.33.98.nip.io/index.yaml : 404 Not Found
+[31m
+Pipeline failed on stage 'pr-checks' : container 'step-lint-helmfile-system'. The execution of the pipeline has stopped.[0m
